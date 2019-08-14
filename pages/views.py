@@ -12,12 +12,43 @@ def introduce(request):
 
 
 # Template Variable Example
-def dinner(request):
+def dinner(request, name):
     menu = ['강남 더막창스', '노랑통닭', '양자강']
     pick = random.choice(menu)
     context = {
-        'pick': pick
+        'pick': pick,
+        'name': name,
     }
 
     # Django template 으로 context 전달 
     return render(request, 'dinner.html', context)
+
+
+def image(request):
+    context = {
+        'picsum': 'https://picsum.photos/500',
+    }
+    return render(request, 'image.html', context)
+
+
+def greeting(request, name):
+    context = {
+        'name': name,
+    }
+    return render(request, 'greeting.html', context)
+
+
+def name(request, word):
+    context = {
+        'word': word,
+    }
+    return render(request, 'word.html', context)
+
+
+def times(request, num1, num2):
+    context = {
+        'num1': num1,
+        'num2': num2,
+        'result': num1 * num2,
+    }
+    return render(request, 'times.html', context)

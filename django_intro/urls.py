@@ -19,7 +19,11 @@ from pages import views
 
 urlpatterns = [
     # path('사용자가 접속하는 경로', 실행할 함수)
-    path('dinner/', views.dinner),
+    path('times/<int:num1>and<int:num2>/', views.times),  # <int:num1>/<int:num2>/
+    path('<str:word>/', views.name),
+    path('greeting/<str:name>/', views.greeting),
+    path('image/', views.image),
+    path('dinner/<str:name>', views.dinner),
     path('introduce/', views.introduce),
     path('index/', views.index),  # 특정 주소에서 실행될 함수를 설정 
     path('admin/', admin.site.urls),
