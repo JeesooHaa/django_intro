@@ -25,6 +25,7 @@ SECRET_KEY = '(5ad2+c%5tp33_fr045y62$!3pr2wvjd1u&iw%f8c7e!xrid$f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# '*' 요렇게 쓰면 모두 허용 
 ALLOWED_HOSTS = []
 
 

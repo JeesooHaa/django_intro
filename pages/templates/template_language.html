@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template language</title>
+</head>
+<body>
+  <h1>Template Language</h1>
+  <hr />
+
+  <h2>1. 반복문</h2>
+  {% for menu in menus %}
+  <p>{{ menu }}</p>
+  {% endfor %}
+  <hr />
+
+  {% comment %} 
+  {{ forloop }} Django Template Language DTL for 문 안에서 자동으로 생기는 객체
+  {% endcomment %}
+  {% for menu in menus %}
+  <p>{{ forloop.counter0 }}. {{ menu }}</p>
+  {% endfor %}
+  <hr />
+  
+  {% for user in empty_list %}
+  <p>{{ user }}</p>
+  {% empty %}
+  <p>현재 가입한 유저가 없습니다.</p>
+  {% endfor %}
+  <hr /> 
+
+  <h2>2. 조건문</h2>
+  {% if '짜장면' in menus %}
+  <p>짜장면에는 고춧가루지!</p>
+  {% endif %}
+  <hr />
+
+  {% comment %} style guide 가 특별히는 없다... {% endcomment %}
+  {% for menu in menus %}
+    <p><strong>{{ forloop.counter }}번째 도는중...</strong></p>
+    {% if forloop.first %}
+    <p>{{ menu }} + 고춧가루</p>
+    {% else %}
+    <p>{{ menu }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr />
+
+  <h2>3. length filter 활용</h2>
+  {% for message in messages  %}
+    {% if message|length > 5 %}
+    <p>{{ message }}, 글자가 너무 길어요.</p>
+    {% else %}
+    <p>{{ message }}, {{ message|length }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr />
+
+  <h2>4. lorem ipsum</h2>
+  {% lorem %}
+  {% comment %} 사용자가 넘겨준 context 가 아니다. {% endcomment %}
+  {% comment %} {{ lorem }} {% endcomment %}
+  <hr />
+  {% lorem 3 w %}
+  <hr />
+  {% lorem 4 w random %}
+  <hr />
+  {% lorem 2 p %}
+  <hr />
+
+  <h2>5. 글자 수 제한(truncate)</h2>
+  <p>{{ my_sentence|truncatewords:3 }}</p> <!-- 단어 단위로 제한 / DTL 쓰지 않을 경우에만 이 주석을 사용 -->
+  <p>{{ my_sentence|truncatechars:3 }}</p> <!-- 문자 단위로 제한 (3번째는 포함x) -->
+  <p>{{ my_sentence|truncatechars:10 }}</p> <!-- 문자 단위로 제한 (10번째는 포함x) -->
+  <hr />
+
+  <h2>6. 글자 관련 필터</h2>
+  <p>{{ 'abc'|length }}</p>
+  <p>{{ 'ABC'|lower }}</p>
+  <p>{{ my_sentence|title }}</p>
+  <p>{{ 'abc def'|capfirst }}</p>
+  <p>{{ menus|random }}</p>
+  <hr />
+
+  {% comment %} DTL 은 기본적으로 연산보다 표현하는 방식에 대한 언어 {% endcomment %}
+  <h2>7. 연산</h2>
+  <p>{{ 4|add:6 }}</p>
+  <hr />
+
+  {% comment %} 
+    {% now %} 가 내장되어 있다.
+  {% endcomment %}
+  <h2>8. 날짜표현</h2>
+  <p>{{ datetimenow }}</p>
+  <p>{% now "DATE_TIME_FORMAT" %}</p>
+  <p>{% now "DATETIME_FORMAT" %}</p>
+  <p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+  <p>{% now "DATE_FORMAT" %}</p>
+  <p>{% now "SHORT_DATE_FORMAT" %}</p>
+  <p>{% now "Y년 m월 d일 (D) h:i" %}</p>
+  <hr />
+  {% now "Y" as current_year %}
+  <p>Copyright {{ current_year }}</p>
+  <hr />
+  {{ datetimenow|date:"DATE_FORMAT" }}
+  <hr />
+
+  <h2>9. 기타</h2>
+  {% comment %} a tag 가 귀찮을 때... {% endcomment %}
+  <p>{{ "google.com"|urlize }}</p>
+  <hr />
+</body>
+</html>

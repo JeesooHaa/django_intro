@@ -144,7 +144,7 @@ $ pip install django
 ```bash
 # 프로젝트 시작
 (venv)
-$ django-admin startproject django_intro .
+$ django-admin startproject django_intro .  # '.' 중요!!
 ```
 
 - 현재 디렉토리에서 django_intro 라는 이름으로 프로젝트를 시작하겠다.
@@ -234,7 +234,7 @@ project : app 집단
 # 이렇게 해야 app 사용 가능
 INSTALLED_APPS = [
     # Local apps
-    'pages',
+    'pages',  # ',' 이것도 중요 매우 !
     
     # Third party apps
 
@@ -253,3 +253,6 @@ INSTALLED_APPS = [
 
 
 path도 위에서부터 아래로 인식됨. 그래서 순서가 중요 
+
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lotto</title>
+</head>
+<body>
+  <h1>인생 역전...</h1>
+  <hr />
+  {% for num in lottos %}
+    <p>{{ num }}번</p>
+  {% endfor %}
+  <hr />
+  <p>당첨 번호: {{ real_lotto }}</p>
+  <p>응모 번호: {{ lottos }}</p>
+  <hr />
+  <h1>결과는?</h1>
+  {% if lottos == real_lotto %}
+    <p>당첨!</p>
+  {% else %}
+    <p>야근 당첨!</p>
+  {% endif %}
+  {% comment %} tag tab! {% endcomment %}
+</body>
+</html>
