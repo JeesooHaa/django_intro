@@ -105,3 +105,43 @@ def lotto(request):
         'lottos': lottos,
     }
     return render(request, 'lotto.html', context)
+
+
+def search(request):
+    return render(request, 'search.html')
+
+
+# 중요 !!
+def result(request):
+    category = request.GET.get('category')
+    query = request.GET.get('query')
+    context = {
+        'category': category,
+        'query': query,
+    }
+    return render(request, 'result.html', context)
+
+
+def lotto_pick(request):
+    return render(request, 'lotto_pick.html')
+
+
+def lotto_result(request):
+    pick_numbers = request.GET.get('numbers')
+    pick_lists = sorted(list(map(int, pick_numbers.split())))
+    # [int for number in numbers.split()]
+    lotto_numbers = [21, 25, 30, 32, 40, 42]
+    # 등수 조건문 작성 
+    context = {
+        'pick_numbers': pick_numbers,
+        'pick_lists': pick_lists,
+        'lotto_numbers': lotto_numbers,
+    }
+    if len(set(pick_lists)) != 6:
+        return render(request, 'lotto_error.html')
+    else:
+        return render(request, 'lotto_result.html', context)
+
+
+def lotto_error(request):
+    return render(request, 'lotto_error.html')
