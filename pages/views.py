@@ -145,3 +145,7 @@ def lotto_result(request):
 
 def lotto_error(request):
     return render(request, 'lotto_error.html')
+
+
+def static_example(request):
+    return render(request, 'static_example.html')
