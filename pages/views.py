@@ -149,3 +149,15 @@ def lotto_error(request):
 
 def static_example(request):
     return render(request, 'static_example.html')
+
+
+def num_push(request):
+    return render(request, 'num_push.html')
+
+
+def num_pull(request):
+    push_number = request.GET.get('number')
+    context = {
+        'push_number': push_number
+    }
+    return render(request, 'num_pull.html', context)

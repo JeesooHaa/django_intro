@@ -19,6 +19,9 @@ from pages import views
 
 urlpatterns = [
     # path('사용자가 접속하는 경로', 실행할 함수)
+    path('num/push/', views.num_push),
+    path('num/pull/', views.num_pull),
+
     path('static_example/', views.static_example),
 
     path('lotto_pick/', views.lotto_pick),
