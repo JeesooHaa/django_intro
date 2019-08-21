@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}Pull{% endblock %}
+
+{% block content %}
+  <h1>Pull Number</h1>
+  <h2>Pull해보니 {{ push_number }} 입니다!</h2>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -10,4 +19,4 @@
   <h1>Pull Number</h1>
   <h2>Pull해보니 {{ push_number }} 입니다!</h2>
 </body>
-</html>
+</html> {% endcomment %}

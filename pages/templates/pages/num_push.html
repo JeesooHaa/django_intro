@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% comment %} 항상 제일 위에 있어야함 {% endcomment %}
+
+{% block title %}Push{% endblock %}
+
+{% block content %}
+  <h1>Push Number</h1>
+  <form action="/pages/num/pull/">
+    <input type="text" name="number">
+    <button type="submit">Push!</button>
+  </form>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -7,11 +20,11 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Push Number</h1>
+  <h1>Push Number</h1> {% endcomment %}
   {% comment %} 노가다...? {% endcomment %}
-  <form action="/pages/num/pull/">
+  {% comment %} <form action="/pages/num/pull/">
     <input type="text" name="number">
     <button type="submit">Push!</button>
   </form>
 </body>
-</html>
+</html> {% endcomment %}

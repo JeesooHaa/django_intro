@@ -256,3 +256,15 @@ path도 위에서부터 아래로 인식됨. 그래서 순서가 중요
 
 
 
+##### 설치환경 저장
+
+```bash
+pip freeze > requirements.txt
+```
+
+##### 환경 재설치
+
+```bash
+pip install -r requirements.txt
+```
+
