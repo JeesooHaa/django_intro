@@ -17,7 +17,7 @@ urlpatterns = [
     path('isitbirthday/<str:month>/<str:day>/', views.isitbirthday),
     path('template_language/', views.template_language),
     path('times/<int:num1>and<int:num2>/', views.times),  # <int:num1>/<int:num2>/
-    path('<str:word>/', views.name),
+    # path('<str:word>/', views.name),
     path('greeting/<str:name>/', views.greeting),
     path('image/', views.image),
     path('dinner/<str:name>', views.dinner),

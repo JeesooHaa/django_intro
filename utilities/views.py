@@ -1,4 +1,6 @@
 from django.shortcuts import render
 
+# templates 를 한 곳에 모아버린다...
+# templates name space 를 만들어줘야한다.
 def index(request):  
-    return render(request, 'index.html')
+    return render(request, 'utilities/index.html')
